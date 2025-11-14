@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TransClass</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes fadeIn {
@@ -65,313 +66,300 @@
     </style>
 </head>
 <body class="bg-white smooth-scroll">
-    <!-- 導覽列 -->
-    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-2">
-                    <i id="navbar-icon" class="fas fa-radio text-2xl text-blue-600 transition-colors duration-300"></i>
-                    <span id="navbar-logo" class="text-xl font-bold text-gray-900 transition-colors duration-300">TransClass</span>
-                </div>
-                
-                <!-- 桌面選單 -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#features" id="nav-link-1" class="text-gray-700 hover:text-blue-600 transition font-medium duration-300">特色</a>
-                    <a href="#details" id="nav-link-2" class="text-gray-700 hover:text-blue-600 transition font-medium duration-300">技術</a>
-                    <a href="#faq" id="nav-link-3" class="text-gray-700 hover:text-blue-600 transition font-medium duration-300">常見問題</a>
-                    <a href="https://yzuspeech2text2.zeabur.app/auth.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
-                        開始使用
-                    </a>
-                </div>
+   <!-- 導覽列 -->
+<!-- 導覽列 -->
+<nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 shadow-md"
+     style="background-color: #dcf0f7; backdrop-filter: blur(10px);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center gap-2">
+                <img id="navbar-icon" src="icondark.png" alt="TransClass Logo" class="h-8 w-8 transition duration-300">
+                <span id="navbar-logo" class="text-xl font-bold transition-colors duration-300" 
+                    style="color: #0a2463; font-family: 'Baloo 2', cursive;">
+                    TransClass
+                </span>
 
-                <!-- 行動選單按鈕 -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-900 text-2xl transition-colors duration-300">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
-
-            <!-- 行動選單 -->
-            <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg animate-slide-down">
-                <a href="#features" class="block px-4 py-3 text-gray-700 hover:text-blue-600 font-medium">特色</a>
-                <a href="#details" class="block px-4 py-3 text-gray-700 hover:text-blue-600 font-medium">技術</a>
-                <a href="#faq" class="block px-4 py-3 text-gray-700 hover:text-blue-600 font-medium">常見問題</a>
-                <a href="https://yzuspeech2text2.zeabur.app/auth.html" class="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 m-4 font-semibold text-center">開始使用</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 英雄區段 -->
-    <section class="pt-32 pb-20 hero-gradient text-white">
-        
-                <img src="logo-1-primary.png" alt="TransClass Logo" class="center">
-                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-                    <a href="https://yzuspeech2text2.zeabur.app/auth.html" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition transform hover:scale-105 text-center">
-                        立即體驗 <i class="fas fa-play ml-2"></i>
-                    </a>
-                    <a href="#features" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition text-center">
-                        了解更多
-                    </a>
-                </div>
             
+            <!-- 桌面選單 -->
+            <div class="hidden md:flex items-center gap-8" style="font-family: 'Baloo 2';">
+                <a href="#features" id="nav-link-1" class="text-[#0a2463] font-bold hover:text-[#68acdd] transition duration-300">特色</a>
+                <a href="#details" id="nav-link-2" class="text-[#0a2463] font-bold hover:text-[#68acdd] transition duration-300">技術</a>
+                <a href="#faq" id="nav-link-3" class="text-[#0a2463] font-bold hover:text-[#68acdd] transition duration-300">常見問題</a>
+                <a href="https://yzuspeech2text2.zeabur.app/auth.html" 
+                class="px-6 py-2 rounded-lg font-bold text-white transition transform hover:scale-105 shadow-md"
+                style="background-color: #68acdd;">
+                    開始使用
+                </a>
+            </div>
+
+
+            <!-- 行動選單按鈕 -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl transition-colors duration-300">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 行動選單 -->
+        <div id="mobile-menu" class="hidden md:hidden border-t shadow-lg animate-slide-down" 
+             style="background-color: rgba(10, 36, 99, 0.95);">
+            <a href="#features" class="block px-4 py-3 text-white hover:text-[#68acdd] font-medium">特色</a>
+            <a href="#details" class="block px-4 py-3 text-white hover:text-[#68acdd] font-medium">技術</a>
+            <a href="#faq" class="block px-4 py-3 text-white hover:text-[#68acdd] font-medium">常見問題</a>
+            <a href="https://yzuspeech2text2.zeabur.app/auth.html" 
+               class="block px-6 py-3 rounded-lg font-semibold text-center text-white hover:brightness-90 m-4"
+               style="background-color: #94d5f6;">
+                開始使用
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- 英雄區段 -->
+<section
+    class="min-h-screen w-full bg-gray-900 text-white flex flex-col items-center"
+    style="
+        background-image: url('logo-light-transparent.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 480px;
+        font-family: 'Baloo 2';
+    "
+>
+
+
+
+    <!-- push content down from center of image -->
+    <div class="mt-60"></div>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-36">
+        <a href="https://yzuspeech2text2.zeabur.app/auth.html"
+           class="px-8 py-3 rounded-lg font-bold text-white transition transform hover:scale-105 text-center"
+           style="background-color: #68acdd;">
+            立即體驗 <i class="fas fa-play ml-2"></i>
+        </a>
+    </div>
+
+    <!-- 向下箭頭：靠近底部 -->
+    <a id="scroll-arrow" href="#features"
+       class="text-[#dcf0f7] text-4xl animate-bounce mt-auto mb-8">
+        <i class="fas fa-angle-down"></i>
+    </a>
+
+</section>
+
+
+<section id="features" class="pt-20 min-h-screen flex flex-col justify-center bg-dcf0f7" style="font-family: 'Baloo 2';">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-4xl font-bold mb-12 text-0a2463">核心特色</h2>
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+
+      <!-- 卡片統一樣式 -->
+      <div class="feature-card p-8 rounded-xl cursor-pointer transition-all transform hover:scale-105 hover:shadow-lg"
+           style="border: 2px solid #68acdd; background-color: rgba(255,255,255,0.05);">
+        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+             style="background-color: #94d5f6;">
+          <i class="fas fa-radio text-2xl" style="color: #0a2463;"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-0a2463">即時語音識別</h3>
+        <p class="text-0a2463">
+          採用 Azure Speech-to-Text API，支援中文、英文、日文、越南文等多種語言輸入，識別準確率高達90%以上。
+        </p>
+      </div>
+
+      <div class="feature-card p-8 rounded-xl cursor-pointer transition-all transform hover:scale-105 hover:shadow-lg"
+           style="border: 2px solid #68acdd; background-color: rgba(255,255,255,0.05);">
+        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+             style="background-color: #94d5f6;">
+          <i class="fas fa-globe text-2xl" style="color: #0a2463;"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-0a2463">多語言翻譯</h3>
+        <p class="text-0a2463">
+          整合 Azure Translator API，支援100+種語言互譯，特別優化學術術語翻譯，提供流暢自然的課堂內容轉譯。
+        </p>
+      </div>
+
+      <div class="feature-card p-8 rounded-xl cursor-pointer transition-all transform hover:scale-105 hover:shadow-lg"
+           style="border: 2px solid #68acdd; background-color: rgba(255,255,255,0.05);">
+        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+             style="background-color: #94d5f6;">
+          <i class="fas fa-book text-2xl" style="color: #0a2463;"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-0a2463">課程紀錄管理</h3>
+        <p class="text-0a2463">
+          自動生成課程摘要與翻譯紀錄，支援多格式匯出功能，方便學生課後複習與教師教學評估。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.feature-card:hover {
+  background-color: #dcf0f7 !important;
+}
+</style>
+
+
+
+    
+<section id="system-carousel" class="py-20" style="background-color: #dcf0f7; font-family: 'Baloo 2';">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <!-- 左右箭頭 -->
+    <a id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 text-[#68acdd] text-4xl animate-bounce transition-transform hover:scale-110 z-10 cursor-pointer">
+      <i class="fas fa-angle-left"></i>
+    </a>
+    <a id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 text-[#68acdd] text-4xl animate-bounce transition-transform hover:scale-110 z-10 cursor-pointer">
+      <i class="fas fa-angle-right"></i>
+    </a>
+
+    <!-- 視窗 -->
+    <div class="overflow-hidden">
+      <div id="carousel" class="flex transition-transform duration-500">
         
-    </section>
-
-    <!-- 特色區段 -->
-    <section id="features" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">核心特色</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- 特色1 -->
-                <div class="feature-card card-hover bg-white p-8 rounded-lg shadow cursor-pointer transition-all" data-feature="0">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-radio text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">即時語音識別</h3>
-                    <p class="text-gray-600">
-                        採用 Azure Speech-to-Text API，支援中文、英文、日文、越南文等多種語言輸入，識別準確率高達90%以上。
-                    </p>
-                </div>
-
-                <!-- 特色2 -->
-                <div class="feature-card card-hover bg-white p-8 rounded-lg shadow cursor-pointer transition-all" data-feature="1">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-globe text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">多語言翻譯</h3>
-                    <p class="text-gray-600">
-                        整合 Azure Translator API，支援100+種語言互譯，特別優化學術術語翻譯，提供流暢自然的課堂內容轉譯。
-                    </p>
-                </div>
-
-                <!-- 特色3 -->
-                <div class="feature-card card-hover bg-white p-8 rounded-lg shadow cursor-pointer transition-all" data-feature="2">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-book text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-900">課程紀錄管理</h3>
-                    <p class="text-gray-600">
-                        自動生成課程摘要與翻譯紀錄，支援多格式匯出功能，方便學生課後複習與教師教學評估。
-                    </p>
-                </div>
+        <!-- 系統概述 -->
+        <div class="flex-shrink-0 w-full p-8">
+        <h2 class="text-2xl font-bold text-0a2463 mb-6">系統概述</h2>
+          <div class="p-8 rounded-lg border-2 border-blue-200 bg-white shadow-md hover:shadow-lg transition-all">
+            
+            <p class="text-0a2463 mb-2">
+              TransClass 是一套專門為國際學生設計的多語言即時課堂翻譯系統。
+            </p>
+            <p class="text-0a2463 mb-2">
+            系統採用 Microsoft Azure 的先進 AI 技術，能夠在課堂進行中即時轉換語音並翻譯成多種語言，幫助外籍學生克服語言障礙。
+            </p>
+            
+            <p class="text-0a2463">
+              系統整合了語音識別、機器翻譯、資料庫管理等多項先進技術，提供穩定可靠的雲端解決方案。透過直觀的使用者介面，讓教師和學生都能輕鬆使用。
+            </p>
+            <!-- <img id="" src="sumain.png" alt="TransClass Logo" class="h-90 duration-300"> -->
+            <div class="flex justify-center mt-4 gap-10">
+                <img src="sumain.png" alt="TransClass Image"
+                    class="w-auto rounded-lg shadow-sm transition-transform duration-300 hover:scale-105"
+                    style="height: 250px;">
+                <img src="sumeeting.png" alt="TransClass Image"
+                    class="w-auto rounded-lg shadow-sm transition-transform duration-300 hover:scale-105"
+                    style="height: 250px;">
             </div>
+
+
+          </div>
         </div>
-    </section>
 
-    <!-- 互動標籤區段 -->
-    <section id="details" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">詳細資訊</h2>
-            <div class="bg-gray-50 rounded-lg overflow-hidden">
-                <div class="flex flex-wrap border-b">
-                    <button class="tab-btn flex-1 px-6 py-4 font-semibold text-gray-700 hover:bg-gray-200 transition tab-active" data-tab="overview">
-                        系統概述
-                    </button>
-                    <button class="tab-btn flex-1 px-6 py-4 font-semibold text-gray-700 hover:bg-gray-200 transition" data-tab="technology">
-                        技術架構
-                    </button>
+        <!-- 技術架構 -->
+        <div class="flex-shrink-0 w-full p-8">
+          <h2 class="text-2xl font-bold text-0a2463 mb-6">技術架構</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- 語音識別層 -->
+            <div class="p-6 rounded-lg border-2 border-blue-200 bg-white hover:bg-blue-50 shadow-md hover:shadow-lg transition-all">
+              <div class="flex items-center gap-3 mb-4">
+                <i class="fas fa-radio text-2xl text-blue-600"></i>
+                <div>
+                  <h4 class="font-bold text-0a2463">語音識別層</h4>
+                  <p class="text-sm text-0a2463">Microsoft Azure Speech-to-Text API</p>
                 </div>
-                <div class="p-8">
-                    <!-- 概述內容 -->
-                    <div id="overview" class="tab-content animate-fade-in">
-                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-200">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">系統概述</h3>
-                            <p class="text-gray-700 mb-4">
-                                TransClass 是一套專門為國際學生設計的多語言即時課堂翻譯系統。系統採用 Microsoft Azure 的先進 AI 技術，能夠在課堂進行中即時轉換語音並翻譯成多種語言，幫助外籍學生克服語言障礙。
-                            </p>
-                            <p class="text-gray-700">
-                                系統整合了語音識別、機器翻譯、資料庫管理等多項先進技術，提供穩定可靠的雲端解決方案。透過直觀的使用者介面，讓教師和學生都能輕鬆使用。
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- 技術內容 -->
-                    <div id="technology" class="tab-content hidden animate-fade-in">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">技術架構詳解</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <i class="fas fa-radio text-2xl text-blue-600"></i>
-                                    <div>
-                                        <h4 class="font-bold text-gray-900">語音識別層</h4>
-                                        <p class="text-sm text-gray-600">Microsoft Azure Speech-to-Text API</p>
-                                    </div>
-                                </div>
-                                <ul class="space-y-2">
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        100+ 語言支援
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        即時串流識別
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        自訂語言模型
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        90%+ 準確率
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <i class="fas fa-globe text-2xl text-blue-600"></i>
-                                    <div>
-                                        <h4 class="font-bold text-gray-900">翻譯層</h4>
-                                        <p class="text-sm text-gray-600">Microsoft Azure Translator API</p>
-                                    </div>
-                                </div>
-                                <ul class="space-y-2">
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        100+ 語言互譯
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        領域適應性優化
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        上下文理解
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        自訂翻譯功能
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <i class="fas fa-database text-2xl text-blue-600"></i>
-                                    <div>
-                                        <h4 class="font-bold text-gray-900">資料管理層</h4>
-                                        <p class="text-sm text-gray-600">PostgreSQL 關聯式資料庫</p>
-                                    </div>
-                                </div>
-                                <ul class="space-y-2">
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        強大 SQL 支援
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        併發處理能力
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        ACID 事務支援
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        開源成本效益
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <i class="fas fa-wifi text-2xl text-blue-600"></i>
-                                    <div>
-                                        <h4 class="font-bold text-gray-900">即時通訊層</h4>
-                                        <p class="text-sm text-gray-600">WebSocket & Socket.IO</p>
-                                    </div>
-                                </div>
-                                <ul class="space-y-2">
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        全雙工連線
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        自動重新連線
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        事件系統
-                                    </li>
-                                    <li class="flex items-center text-sm text-gray-700">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                                        即時同步
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              <ul class="space-y-2 text-0a2463">
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>100+ 語言支援</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>即時串流識別</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>自訂語言模型</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>90%+ 準確率</li>
+              </ul>
             </div>
-        </div>
-    </section>
 
-    <!-- 優缺點比較 -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">系統評估</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow card-hover">
-                    <h3 class="text-2xl font-bold text-green-600 mb-6 flex items-center gap-2">
-                        <i class="fas fa-star"></i> 系統優點
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold text-lg">✓</span>
-                            <span class="text-gray-700">多語言支援廣泛，滿足多國籍學生需求</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold text-lg">✓</span>
-                            <span class="text-gray-700">使用者介面簡潔友善，易於操作</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold text-lg">✓</span>
-                            <span class="text-gray-700">採用雲端服務架構，穩定可靠</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold text-lg">✓</span>
-                            <span class="text-gray-700">即時性強，準確率高</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold text-lg">✓</span>
-                            <span class="text-gray-700">支援多裝置平台（桌電、平板、手機）</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-green-500 font-bold text-lg">✓</span>
-                            <span class="text-gray-700">無需安裝軟體，瀏覽器即可使用</span>
-                        </li>
-                    </ul>
+            <!-- 翻譯層 -->
+            <div class="p-6 rounded-lg border-2 border-blue-200 bg-white hover:bg-blue-50 shadow-md hover:shadow-lg transition-all">
+              <div class="flex items-center gap-3 mb-4">
+                <i class="fas fa-globe text-2xl text-blue-600"></i>
+                <div>
+                  <h4 class="font-bold text-0a2463">翻譯層</h4>
+                  <p class="text-sm text-0a2463">Microsoft Azure Translator API</p>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow card-hover">
-                    <h3 class="text-2xl font-bold text-orange-600 mb-6 flex items-center gap-2">
-                        <i class="fas fa-exclamation-triangle"></i> 系統限制
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span class="text-orange-500 font-bold text-lg">!</span>
-                            <span class="text-gray-700">對網路連線品質依賴度高</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-orange-500 font-bold text-lg">!</span>
-                            <span class="text-gray-700">專業術語翻譯準確度仍有提升空間</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-orange-500 font-bold text-lg">!</span>
-                            <span class="text-gray-700">嘈雜環境中語音識別效果受影響</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-orange-500 font-bold text-lg">!</span>
-                            <span class="text-gray-700">目前支援中英日越文輸入</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-orange-500 font-bold text-lg">!</span>
-                            <span class="text-gray-700">離線環境無法使用</span>
-                        </li>
-                    </ul>
-                </div>
+              </div>
+              <ul class="space-y-2 text-0a2463">
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>100+ 語言互譯</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>領域適應性優化</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>上下文理解</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>自訂翻譯功能</li>
+              </ul>
             </div>
+
+            <!-- 資料管理層 -->
+            <div class="p-6 rounded-lg border-2 border-blue-200 bg-white hover:bg-blue-50 shadow-md hover:shadow-lg transition-all">
+              <div class="flex items-center gap-3 mb-4">
+                <i class="fas fa-database text-2xl text-blue-600"></i>
+                <div>
+                  <h4 class="font-bold text-0a2463">資料管理層</h4>
+                  <p class="text-sm text-0a2463">PostgreSQL 關聯式資料庫</p>
+                </div>
+              </div>
+              <ul class="space-y-2 text-0a2463">
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>強大 SQL 支援</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>併發處理能力</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>ACID 事務支援</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>開源成本效益</li>
+              </ul>
+            </div>
+
+            <!-- 即時通訊層 -->
+            <div class="p-6 rounded-lg border-2 border-blue-200 bg-white hover:bg-blue-50 shadow-md hover:shadow-lg transition-all">
+              <div class="flex items-center gap-3 mb-4">
+                <i class="fas fa-wifi text-2xl text-blue-600"></i>
+                <div>
+                  <h4 class="font-bold text-0a2463">即時通訊層</h4>
+                  <p class="text-sm text-0a2463">WebSocket & Socket.IO</p>
+                </div>
+              </div>
+              <ul class="space-y-2 text-0a2463">
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>全雙工連線</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>自動重新連線</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>事件系統</li>
+                <li class="flex items-center text-sm"><span class="w-2 h-2 bg-blue-400 rounded-full mr-2"></span>即時同步</li>
+              </ul>
+            </div>
+
+          </div>
         </div>
-    </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+const carousel = document.getElementById('carousel');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+let currentIndex = 0;
+const totalSlides = carousel.children.length;
+
+function updateCarousel() {
+  const width = carousel.children[0].offsetWidth;
+  // 永遠往左滑
+  carousel.style.transition = 'transform 0.5s ease';
+  carousel.style.transform = `translateX(-${currentIndex * width}px)`;
+}
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % totalSlides; // 無限循環
+  updateCarousel();
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // 無限循環
+  updateCarousel();
+});
+
+window.addEventListener('resize', updateCarousel);
+</script>
+
+
+
+
+
 
     <!-- 常見問題 -->
     <section id="faq" class="py-20 bg-white">
@@ -431,38 +419,58 @@
         </div>
     </section>
 
-    <!-- 開發團隊獨立區段 -->
-    <section id="team" class="py-20 bg-gray-50">
+
+    <section id="team" class="py-20" style="background-color: #ffffff;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">開發團隊</h2>
+            <h2 class="text-4xl font-bold text-center mb-12" style="color: #0a2463;">開發團隊</h2>
+
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg text-center border-2 border-blue-300 card-hover">
-                    <div class="w-24 h-24 bg-blue-300 rounded-full mx-auto mb-6 flex items-center justify-center">
-                        <i class="fas fa-code text-4xl text-white"></i>
-                    </div>
-                    <h4 class="font-bold text-xl text-gray-900 mb-3">林意晨</h4>
-                    <p class="text-sm text-gray-600 font-semibold mb-2">系統架構設計</p>
-                    <p class="text-sm text-gray-600">後端開發</p>
+
+            <!-- 成員 1 -->
+            <div class="feature-card p-8 rounded-xl cursor-pointer transition-all transform hover:scale-105 hover:shadow-lg"
+                style="border: 2px solid #68acdd; background-color: rgba(255,255,255,0.05);">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style="background-color: #94d5f6;">
+                <i class="fas fa-code text-3xl" style="color: #0a2463;"></i>
                 </div>
-                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg text-center border-2 border-green-300 card-hover">
-                    <div class="w-24 h-24 bg-green-300 rounded-full mx-auto mb-6 flex items-center justify-center">
-                        <i class="fas fa-palette text-4xl text-white"></i>
-                    </div>
-                    <h4 class="font-bold text-xl text-gray-900 mb-3">林瑜君</h4>
-                    <p class="text-sm text-gray-600 font-semibold mb-2">前端開發</p>
-                    <p class="text-sm text-gray-600">UX 設計</p>
+                <h3 class="text-xl font-bold mb-2 text-center" style="color: #0a2463;">林意晨</h3>
+                <p class="text-sm text-center" style="color: #0a2463;">系統架構設計、後端開發</p>
+            </div>
+
+            <!-- 成員 2 -->
+            <div class="feature-card p-8 rounded-xl cursor-pointer transition-all transform hover:scale-105 hover:shadow-lg"
+                style="border: 2px solid #68acdd; background-color: rgba(255,255,255,0.05);">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style="background-color: #94d5f6;">
+                <i class="fas fa-palette text-3xl" style="color: #0a2463;"></i>
                 </div>
-                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg text-center border-2 border-purple-300 card-hover">
-                    <div class="w-24 h-24 bg-purple-300 rounded-full mx-auto mb-6 flex items-center justify-center">
-                        <i class="fas fa-graduation-cap text-4xl text-white"></i>
-                    </div>
-                    <h4 class="font-bold text-xl text-gray-900 mb-3">邱昭彰</h4>
-                    <p class="text-sm text-gray-600 font-semibold mb-2">指導教授</p>
-                    <p class="text-sm text-gray-600">元智大學資管系</p>
+                <h3 class="text-xl font-bold mb-2 text-center" style="color: #0a2463;">林瑜君</h3>
+                <p class="text-sm text-center" style="color: #0a2463;">前端開發、UX 設計</p>
+            </div>
+
+            <!-- 成員 3 -->
+            <div class="feature-card p-8 rounded-xl cursor-pointer transition-all transform hover:scale-105 hover:shadow-lg"
+                style="border: 2px solid #68acdd; background-color: rgba(255,255,255,0.05);">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style="background-color: #94d5f6;">
+                <i class="fas fa-graduation-cap text-3xl" style="color: #0a2463;"></i>
                 </div>
+                <h3 class="text-xl text-center font-bold mb-2" style="color: #0a2463;">邱昭彰</h3>
+                <p class="text-sm text-center" style="color: #0a2463;">指導教授 — 元智大學資管系</p>
+            </div>
+
             </div>
         </div>
-    </section>
+        </section>
+
+
+    <script>
+        document.getElementById('scroll-arrow').addEventListener('click', function(e){
+            e.preventDefault();
+            document.querySelector('#features').scrollIntoView({ behavior:'smooth' });
+        });
+    </script>
+
 
     
 
