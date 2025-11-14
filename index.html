@@ -3,383 +3,556 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TransClass - 智慧課堂翻譯系統</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TransClass</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                        },
-                        secondary: {
-                            500: '#10b981',
-                            600: '#059669',
-                        }
-                    }
-                }
-            }
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-    </script>
-</head>
-<body class="bg-gray-50 font-sans">
-    <custom-navbar></custom-navbar>
-    
-    <main class="container mx-auto px-4 py-12">
-        <!-- 專題介紹區塊 -->
-        <section class="text-center mb-20">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                打破語言隔閡的<span class="text-primary-600">智慧課堂翻譯系統</span>
-            </h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-                TransClass 運用 Azure AI 技術，為國際學生提供即時多語言課堂翻譯，解決中文授課的理解障礙，提升學習參與度與成效。
-            </p>
-            <div class="flex justify-center gap-4">
-                <a href="#features" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                    系統特色
-                </a>
-                <a href="#demo" class="border border-primary-500 text-primary-500 hover:bg-primary-50 px-6 py-3 rounded-lg font-medium transition duration-300">
-                    觀看示範
-                </a>
-            </div>
-        </section>
-
-        <!-- 問題背景區塊 -->
-        <section class="mb-20 bg-white rounded-xl shadow-lg p-8">
-            <div class="flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">國際學生的<span class="text-secondary-600">語言困境</span></h2>
-                    <p class="text-gray-600 mb-4">
-                        根據教育部統計，台灣有超過13萬名國際學生，其中65%反映中文授課理解困難，特別是在專業課程中面臨術語障礙與課堂參與度低的問題。
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-exclamation-circle text-secondary-500 mr-2 mt-1"></i>
-                            <span>專業術語造成理解斷層</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-exclamation-circle text-secondary-500 mr-2 mt-1"></i>
-                            <span>課堂討論參與度不足</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-exclamation-circle text-secondary-500 mr-2 mt-1"></i>
-                            <span>學習挫折感影響學業表現</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="md:w-1/2">
-                    <img src="http://static.photos/education/1024x576/1" alt="國際學生在課堂中" class="rounded-lg shadow-md w-full">
-                </div>
-            </div>
-        </section>
-
-        <!-- 系統特色區塊 -->
-        <section id="features" class="mb-20">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">核心<span class="text-primary-600">技術特色</span></h2>
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        .animate-slide-down {
+            animation: slideDown 0.3s ease-out;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        .hero-gradient {
+            background: #0a2463 ;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .tab-active {
+            border-bottom: 3px solid #0a2463;
+            color: #0a2463;
+        }
+        .feature-card-active {
             
+            color: white;
+            box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.3);
+            transform: scale(1.02);
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+    </style>
+</head>
+<body class="bg-white smooth-scroll">
+    <!-- 導覽列 -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <i id="navbar-icon" class="fas fa-radio text-2xl text-blue-600 transition-colors duration-300"></i>
+                    <span id="navbar-logo" class="text-xl font-bold text-gray-900 transition-colors duration-300">TransClass</span>
+                </div>
+                
+                <!-- 桌面選單 -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#features" id="nav-link-1" class="text-gray-700 hover:text-blue-600 transition font-medium duration-300">特色</a>
+                    <a href="#details" id="nav-link-2" class="text-gray-700 hover:text-blue-600 transition font-medium duration-300">技術</a>
+                    <a href="#faq" id="nav-link-3" class="text-gray-700 hover:text-blue-600 transition font-medium duration-300">常見問題</a>
+                    <a href="https://yzuspeech2text2.zeabur.app/auth.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+                        開始使用
+                    </a>
+                </div>
+
+                <!-- 行動選單按鈕 -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-900 text-2xl transition-colors duration-300">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- 行動選單 -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg animate-slide-down">
+                <a href="#features" class="block px-4 py-3 text-gray-700 hover:text-blue-600 font-medium">特色</a>
+                <a href="#details" class="block px-4 py-3 text-gray-700 hover:text-blue-600 font-medium">技術</a>
+                <a href="#faq" class="block px-4 py-3 text-gray-700 hover:text-blue-600 font-medium">常見問題</a>
+                <a href="https://yzuspeech2text2.zeabur.app/auth.html" class="block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 m-4 font-semibold text-center">開始使用</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區段 -->
+    <section class="pt-32 pb-20 hero-gradient text-white">
+        
+                <img src="logo-1-primary.png" alt="TransClass Logo" class="center">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                    <a href="https://yzuspeech2text2.zeabur.app/auth.html" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition transform hover:scale-105 text-center">
+                        立即體驗 <i class="fas fa-play ml-2"></i>
+                    </a>
+                    <a href="#features" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition text-center">
+                        了解更多
+                    </a>
+                </div>
+            
+        
+    </section>
+
+    <!-- 特色區段 -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">核心特色</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- 特色1 -->
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="bg-primary-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-microphone text-primary-600"></i>
+                <div class="feature-card card-hover bg-white p-8 rounded-lg shadow cursor-pointer transition-all" data-feature="0">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-radio text-2xl text-blue-600"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">即時語音識別</h3>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">即時語音識別</h3>
                     <p class="text-gray-600">
                         採用 Azure Speech-to-Text API，支援中文、英文、日文、越南文等多種語言輸入，識別準確率高達90%以上。
                     </p>
                 </div>
-                
+
                 <!-- 特色2 -->
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="bg-primary-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-language text-primary-600"></i>
+                <div class="feature-card card-hover bg-white p-8 rounded-lg shadow cursor-pointer transition-all" data-feature="1">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-globe text-2xl text-blue-600"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">多語言翻譯</h3>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">多語言翻譯</h3>
                     <p class="text-gray-600">
                         整合 Azure Translator API，支援100+種語言互譯，特別優化學術術語翻譯，提供流暢自然的課堂內容轉譯。
                     </p>
                 </div>
 
                 <!-- 特色3 -->
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="bg-primary-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-book text-primary-600"></i>
+                <div class="feature-card card-hover bg-white p-8 rounded-lg shadow cursor-pointer transition-all" data-feature="2">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-book text-2xl text-blue-600"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">課程紀錄管理</h3>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">課程紀錄管理</h3>
                     <p class="text-gray-600">
                         自動生成課程摘要與翻譯紀錄，支援多格式匯出功能，方便學生課後複習與教師教學評估。
                     </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 技術架構區塊 -->
-        <section class="mb-20 bg-gray-100 rounded-xl p-8">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">系統<span class="text-primary-600">技術架構</span></h2>
-            <div class="flex justify-center">
-                <img src="http://static.photos/technology/1024x576/1" alt="系統架構圖" class="rounded-lg shadow-md max-w-full">
-            </div>
-        </section>
-
-        <!-- 專題摘要區塊 -->
-        <section class="mb-20 bg-blue-50 rounded-xl p-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">專題摘要</h2>
-            <div class="text-gray-700 max-w-4xl">
-                <p class="mb-4">
-                    隨著台灣高等教育積極推動國際化政策，外籍學生人數逐年攀升。根據教育部統計，目前在台外籍學生已超過13萬人，來自東南亞、歐美、日韓等不同語言文化背景。然而，中文授課課程對於非中文母語學生而言，往往形成顯著的學習障礙。
-                </p>
-                <p class="mb-4">
-                    本系統採用先進的語音識別與機器翻譯技術架構，整合 Microsoft Azure Speech-to-Text API 進行高精度中文語音識別，採用 Azure Translator API 實現多語言翻譯功能，支援 100+ 種語言。系統後端採用 PostgreSQL 進行資料管理，提供完整的使用者管理機制、翻譯歷史紀錄功能與個人化設定儲存。
-                </p>
-                <p>
-                    系統為解決跨文化高等教育中的語言障礙問題提供了創新且實用的技術解決方案，具有良好的推廣應用價值與發展潛力。
-                </p>
-            </div>
-        </section>
-
-        <!-- 研究背景與動機 -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">研究背景與動機</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold text-primary-600 mb-4">語言溝通挑戰</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary-500 mr-3 mt-1 flex-shrink-0"></i>
-                            <span>外籍學生超過13萬人，65% 反映中文授課理解困難</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary-500 mr-3 mt-1 flex-shrink-0"></i>
-                            <span>專業術語翻譯複雜，課堂討論參與度不足</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary-500 mr-3 mt-1 flex-shrink-0"></i>
-                            <span>傳統語言輔導無法滿足即時課堂需求</span>
-                        </li>
-                    </ul>
+    <!-- 互動標籤區段 -->
+    <section id="details" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">詳細資訊</h2>
+            <div class="bg-gray-50 rounded-lg overflow-hidden">
+                <div class="flex flex-wrap border-b">
+                    <button class="tab-btn flex-1 px-6 py-4 font-semibold text-gray-700 hover:bg-gray-200 transition tab-active" data-tab="overview">
+                        系統概述
+                    </button>
+                    <button class="tab-btn flex-1 px-6 py-4 font-semibold text-gray-700 hover:bg-gray-200 transition" data-tab="technology">
+                        技術架構
+                    </button>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <h3 class="text-xl font-semibold text-primary-600 mb-4">技術發展機會</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li class="flex items-start">
-                            <i class="fas fa-lightbulb text-secondary-500 mr-3 mt-1 flex-shrink-0"></i>
-                            <span>深度學習突破使語音識別準確率大幅提升</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-lightbulb text-secondary-500 mr-3 mt-1 flex-shrink-0"></i>
-                            <span>Transformer 架構神經機器翻譯達接近人工翻譯品質</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-lightbulb text-secondary-500 mr-3 mt-1 flex-shrink-0"></i>
-                            <span>雲端服務成熟，API 化設計降低開發門檻</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 詳細技術架構 -->
-        <section class="mb-20 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">系統技術堆疊</h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-primary-600 mb-4 flex items-center">
-                        <i class="fas fa-microphone mr-2"></i>
-                        語音識別層
-                    </h3>
-                    <p class="text-gray-600 mb-3"><strong>Microsoft Azure Speech-to-Text API</strong></p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>✓ 支援 100+ 語言與方言</li>
-                        <li>✓ 即時串流識別功能</li>
-                        <li>✓ 自訂語言模型支援</li>
-                        <li>✓ 準確率達 90% 以上</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-primary-600 mb-4 flex items-center">
-                        <i class="fas fa-language mr-2"></i>
-                        翻譯層
-                    </h3>
-                    <p class="text-gray-600 mb-3"><strong>Microsoft Azure Translator API</strong></p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>✓ 支援 100+ 語言互譯</li>
-                        <li>✓ 領域適應性優化</li>
-                        <li>✓ 上下文理解能力</li>
-                        <li>✓ 自訂翻譯功能</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-primary-600 mb-4 flex items-center">
-                        <i class="fas fa-database mr-2"></i>
-                        資料管理層
-                    </h3>
-                    <p class="text-gray-600 mb-3"><strong>PostgreSQL 關聯式資料庫</strong></p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>✓ 強大的 SQL 支援</li>
-                        <li>✓ 優秀的併發處理能力</li>
-                        <li>✓ 完整 ACID 事務支援</li>
-                        <li>✓ 開源與成本效益</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-lg font-semibold text-primary-600 mb-4 flex items-center">
-                        <i class="fas fa-wifi mr-2"></i>
-                        即時通訊層
-                    </h3>
-                    <p class="text-gray-600 mb-3"><strong>WebSocket & Socket.IO</strong></p>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>✓ 全雙工持久連線</li>
-                        <li>✓ 自動重新連線機制</li>
-                        <li>✓ 事件系統與課程管理</li>
-                        <li>✓ 即時內容同步</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 系統主要功能 -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">系統主要功能</h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <h3 class="text-lg font-semibold text-primary-600 mb-4"><i class="fas fa-chalkboard-user mr-2"></i>教師功能</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>建立與管理課程資料夾</li>
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>開啟課程進行實時翻譯</li>
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>分享課程連結與管理參與者</li>
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>查看課程紀錄與統計</li>
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>匯出翻譯紀錄與摘要</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <h3 class="text-lg font-semibold text-primary-600 mb-4"><i class="fas fa-graduation-cap mr-2"></i>學生功能</h3>
-                    <ul class="space-y-3 text-gray-600">
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>使用連結加入課程</li>
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>選擇目標翻譯語言</li>
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>實時查看語音轉文字</li>
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>接收多語言翻譯內容</li>
-                        <li><i class="fas fa-check text-secondary-500 mr-2"></i>查看課程紀錄與匯出資料</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 系統優點與限制 -->
-        <section class="mb-20 bg-white rounded-xl shadow-lg p-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">系統優點與限制</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold text-secondary-600 mb-4 flex items-center">
-                        <i class="fas fa-star text-secondary-500 mr-2"></i>
-                        系統優點
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="text-gray-600">✓ 多語言支援廣泛，滿足多國籍學生需求</li>
-                        <li class="text-gray-600">✓ 使用者介面簡潔友善，易於操作</li>
-                        <li class="text-gray-600">✓ 採用雲端服務架構，穩定可靠</li>
-                        <li class="text-gray-600">✓ 即時性強，準確率高</li>
-                        <li class="text-gray-600">✓ 支援多裝置平台（桌電、平板、手機）</li>
-                        <li class="text-gray-600">✓ 無需安裝軟體，瀏覽器即可使用</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-primary-600 mb-4 flex items-center">
-                        <i class="fas fa-exclamation-triangle text-primary-500 mr-2"></i>
-                        系統限制
-                    </h3>
-                    <ul class="space-y-3">
-                        <li class="text-gray-600">• 對網路連線品質依賴度高</li>
-                        <li class="text-gray-600">• 專業術語翻譯準確度仍有提升空間</li>
-                        <li class="text-gray-600">• 嘈雜環境中語音識別效果受影響</li>
-                        <li class="text-gray-600">• 目前支援中英日越文輸入</li>
-                        <li class="text-gray-600">• 離線環境無法使用</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 後續發展與建議 -->
-        <section class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-xl p-8 mb-20">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">後續發展與建議</h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
-                <div>
-                    <h3 class="text-lg font-semibold text-primary-600 mb-4">未來發展方向</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li>🔄 探索大型語言模型在語音翻譯中的應用</li>
-                        <li>🎯 提升專業術語與技術詞彙的翻譯準確度</li>
-                        <li>🌐 支援更多語言的語音輸入</li>
-                        <li>🤖 整合多模態 AI 功能與個性化建議</li>
-                        <li>📊 增強課程分析與學習效果追蹤</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-secondary-600 mb-4">優化建議</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li>⚙️ 建立 CI/CD 自動部署流程</li>
-                        <li>✅ 完善自動化測試框架</li>
-                        <li>📚 增加雲端服務基礎培訓</li>
-                        <li>🎨 強化使用者體驗設計能力</li>
-                        <li>🔐 加強資料安全與隱私保護</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- 開發團隊區塊 -->
-        <section class="mb-20">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">開發<span class="text-primary-600">團隊</span></h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8">
-                <!-- 成員1 -->
-                <div class="bg-white p-6 rounded-xl shadow-md flex items-center gap-6">
-                    <div class="w-24 h-24 rounded-full overflow-hidden">
-                        <img src="http://static.photos/people/200x200/1" alt="林意晨" class="w-full h-full object-cover">
+                <div class="p-8">
+                    <!-- 概述內容 -->
+                    <div id="overview" class="tab-content animate-fade-in">
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-200">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">系統概述</h3>
+                            <p class="text-gray-700 mb-4">
+                                TransClass 是一套專門為國際學生設計的多語言即時課堂翻譯系統。系統採用 Microsoft Azure 的先進 AI 技術，能夠在課堂進行中即時轉換語音並翻譯成多種語言，幫助外籍學生克服語言障礙。
+                            </p>
+                            <p class="text-gray-700">
+                                系統整合了語音識別、機器翻譯、資料庫管理等多項先進技術，提供穩定可靠的雲端解決方案。透過直觀的使用者介面，讓教師和學生都能輕鬆使用。
+                            </p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold">林意晨</h3>
-                        <p class="text-gray-600">元智大學資管系</p>
-                        <p class="text-gray-500 mt-2">系統架構設計與後端開發</p>
+
+                    <!-- 技術內容 -->
+                    <div id="technology" class="tab-content hidden animate-fade-in">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">技術架構詳解</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-radio text-2xl text-blue-600"></i>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">語音識別層</h4>
+                                        <p class="text-sm text-gray-600">Microsoft Azure Speech-to-Text API</p>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        100+ 語言支援
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        即時串流識別
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        自訂語言模型
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        90%+ 準確率
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-globe text-2xl text-blue-600"></i>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">翻譯層</h4>
+                                        <p class="text-sm text-gray-600">Microsoft Azure Translator API</p>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        100+ 語言互譯
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        領域適應性優化
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        上下文理解
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        自訂翻譯功能
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-database text-2xl text-blue-600"></i>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">資料管理層</h4>
+                                        <p class="text-sm text-gray-600">PostgreSQL 關聯式資料庫</p>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        強大 SQL 支援
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        併發處理能力
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        ACID 事務支援
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        開源成本效益
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <i class="fas fa-wifi text-2xl text-blue-600"></i>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">即時通訊層</h4>
+                                        <p class="text-sm text-gray-600">WebSocket & Socket.IO</p>
+                                    </div>
+                                </div>
+                                <ul class="space-y-2">
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        全雙工連線
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        自動重新連線
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        事件系統
+                                    </li>
+                                    <li class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        即時同步
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 優缺點比較 -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">系統評估</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow card-hover">
+                    <h3 class="text-2xl font-bold text-green-600 mb-6 flex items-center gap-2">
+                        <i class="fas fa-star"></i> 系統優點
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold text-lg">✓</span>
+                            <span class="text-gray-700">多語言支援廣泛，滿足多國籍學生需求</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold text-lg">✓</span>
+                            <span class="text-gray-700">使用者介面簡潔友善，易於操作</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold text-lg">✓</span>
+                            <span class="text-gray-700">採用雲端服務架構，穩定可靠</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold text-lg">✓</span>
+                            <span class="text-gray-700">即時性強，準確率高</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold text-lg">✓</span>
+                            <span class="text-gray-700">支援多裝置平台（桌電、平板、手機）</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 font-bold text-lg">✓</span>
+                            <span class="text-gray-700">無需安裝軟體，瀏覽器即可使用</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow card-hover">
+                    <h3 class="text-2xl font-bold text-orange-600 mb-6 flex items-center gap-2">
+                        <i class="fas fa-exclamation-triangle"></i> 系統限制
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-lg">!</span>
+                            <span class="text-gray-700">對網路連線品質依賴度高</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-lg">!</span>
+                            <span class="text-gray-700">專業術語翻譯準確度仍有提升空間</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-lg">!</span>
+                            <span class="text-gray-700">嘈雜環境中語音識別效果受影響</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-lg">!</span>
+                            <span class="text-gray-700">目前支援中英日越文輸入</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-500 font-bold text-lg">!</span>
+                            <span class="text-gray-700">離線環境無法使用</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常見問題 -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">常見問題</h2>
+            <div class="space-y-4">
+                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-gray-900 text-left">系統支援哪些語言？</span>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-white text-gray-700 border-t animate-slide-down">
+                        系統支援 100+ 種語言的翻譯，語音識別目前支援中文、英文、日文、越南文等主要語言。
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-gray-900 text-left">語音識別的準確率是多少？</span>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-white text-gray-700 border-t animate-slide-down">
+                        在安靜環境下，準確率可達 90% 以上。在嘈雜環境中會有所下降，這是語音識別技術的普遍限制。
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-gray-900 text-left">可以離線使用嗎？</span>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-white text-gray-700 border-t animate-slide-down">
+                        不行，系統需要穩定的網路連線才能使用，因為需要調用雲端 API 服務。
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-gray-900 text-left">如何開始使用？</span>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-white text-gray-700 border-t animate-slide-down">
+                        教師可以建立課程，學生使用課程連結加入。課程中選擇翻譯語言後即可開始實時翻譯。
+                    </div>
+                </div>
+
+                <div class="faq-item border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition">
+                        <span class="font-semibold text-gray-900 text-left">資料會被保存多久？</span>
+                        <i class="fas fa-chevron-down text-gray-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 bg-white text-gray-700 border-t animate-slide-down">
+                        課程紀錄會被保存在資料庫中，用戶可隨時查詢和匯出。具體保留政策請參考使用條款。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 開發團隊獨立區段 -->
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">開發團隊</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg text-center border-2 border-blue-300 card-hover">
+                    <div class="w-24 h-24 bg-blue-300 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-code text-4xl text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3">林意晨</h4>
+                    <p class="text-sm text-gray-600 font-semibold mb-2">系統架構設計</p>
+                    <p class="text-sm text-gray-600">後端開發</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg text-center border-2 border-green-300 card-hover">
+                    <div class="w-24 h-24 bg-green-300 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-palette text-4xl text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3">林瑜君</h4>
+                    <p class="text-sm text-gray-600 font-semibold mb-2">前端開發</p>
+                    <p class="text-sm text-gray-600">UX 設計</p>
+                </div>
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg text-center border-2 border-purple-300 card-hover">
+                    <div class="w-24 h-24 bg-purple-300 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-4xl text-white"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3">邱昭彰</h4>
+                    <p class="text-sm text-gray-600 font-semibold mb-2">指導教授</p>
+                    <p class="text-sm text-gray-600">元智大學資管系</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- 頁尾 -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-white mb-4">TransClass</h4>
+                    <p class="text-sm">智慧課堂翻譯系統</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">產品</h4>
+                    <ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white">功能</a></li><li><a href="#" class="hover:text-white">定價</a></li></ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">公司</h4>
+                    <ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white">關於</a></li><li><a href="#" class="hover:text-white">聯絡</a></li></ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">法律</h4>
+                    <ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white">隱私</a></li><li><a href="#" class="hover:text-white">條款</a></li></ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2025 TransClass - 元智大學資訊管理學系。版權所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 行動選單
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // 特色卡片互動
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.feature-card').forEach(c => c.classList.remove('feature-card-active', 'bg-blue-600', 'text-white'));
+                this.classList.add('feature-card-active');
+            });
+        });
+
+        // 標籤切換
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tab = this.getAttribute('data-tab');
                 
-                <!-- 成員2 -->
-                <div class="bg-white p-6 rounded-xl shadow-md flex items-center gap-6">
-                    <div class="w-24 h-24 rounded-full overflow-hidden">
-                        <img src="http://static.photos/people/200x200/2" alt="林瑜君" class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold">林瑜君</h3>
-                        <p class="text-gray-600">元智大學資管系</p>
-                        <p class="text-gray-500 mt-2">前端開發與使用者體驗設計</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                // 隱藏所有內容
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // 移除所有活躍狀態
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('tab-active', 'text-blue-600');
+                    b.classList.add('text-gray-700', 'bg-white');
+                });
+                
+                // 顯示選中的標籤
+                document.getElementById(tab).classList.remove('hidden');
+                
+                // 添加活躍狀態
+                this.classList.add('tab-active', 'text-blue-600');
+                this.classList.remove('text-gray-700', 'bg-white');
+            });
+        });
 
-        <!-- 指導教授區塊 -->
-        <section class="mb-20 text-center bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-8">
-            <h3 class="text-lg text-gray-600 mb-2">指導教授</h3>
-            <h2 class="text-3xl font-bold text-primary-600 mb-2">邱昭彰 教授</h2>
-            <p class="text-gray-600">元智大學資訊管理學系</p>
-        </section>
+        // FAQ 手風琴
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // 關閉其他
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    if (a !== answer) a.classList.add('hidden');
+                });
+                document.querySelectorAll('.faq-btn i').forEach(i => {
+                    if (i !== icon) i.style.transform = 'rotate(0deg)';
+                });
+                
+                // 切換當前
+                answer.classList.toggle('hidden');
+                icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            });
+        });
 
-        <!-- 專題報告資訊 -->
-        <section class="text-center">
-            <h3 class="text-lg text-gray-600 mb-3">學術類畢業專題頂石課程(二)</h3>
-            <h2 class="text-3xl font-bold text-primary-600 mb-2">元智大學資訊管理學系</h2>
-            <p class="text-gray-500 mb-2">中華民國 114 年 11 月</p>
-            <p class="text-gray-500 text-sm">November 2025</p>
-        </section>
-    </main>
-
-    <custom-footer></custom-footer>
-
-    <script src="components/navbar.js"></script>
-    <script src="components/footer.js"></script>
-    <script src="script.js"></script>
-
+        
+    </script>
 </body>
 </html>
