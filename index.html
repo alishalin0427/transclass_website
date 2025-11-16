@@ -63,6 +63,7 @@
             margin-right: auto;
             width: 50%;
         }
+        
     </style>
 </head>
 <body class="bg-white smooth-scroll">
@@ -84,8 +85,9 @@
             <!-- 桌面選單 -->
             <div class="hidden md:flex items-center gap-8" style="font-family: 'Baloo 2';">
                 <a href="#features" id="nav-link-1" class="text-[#0a2463] font-bold hover:text-[#68acdd] transition duration-300">特色</a>
-                <a href="#details" id="nav-link-2" class="text-[#0a2463] font-bold hover:text-[#68acdd] transition duration-300">技術</a>
+                <a href="#system-carousel" id="nav-link-2" class="text-[#0a2463] font-bold hover:text-[#68acdd] transition duration-300">技術</a>
                 <a href="#faq" id="nav-link-3" class="text-[#0a2463] font-bold hover:text-[#68acdd] transition duration-300">常見問題</a>
+                <a href="#video-intro" class="text-[#0a2463] font-bold hover:text-[#68acdd] transition duration-300">影片介紹</a>
                 <a href="https://yzuspeech2text2.zeabur.app/auth.html" 
                 class="px-6 py-2 rounded-lg font-bold text-white transition transform hover:scale-105 shadow-md"
                 style="background-color: #68acdd;">
@@ -104,8 +106,9 @@
         <div id="mobile-menu" class="hidden md:hidden border-t shadow-lg animate-slide-down" 
              style="background-color: rgba(10, 36, 99, 0.95);">
             <a href="#features" class="block px-4 py-3 text-white hover:text-[#68acdd] font-medium">特色</a>
-            <a href="#details" class="block px-4 py-3 text-white hover:text-[#68acdd] font-medium">技術</a>
+            <a href="#system-carousel" class="block px-4 py-3 text-white hover:text-[#68acdd] font-medium">技術</a>
             <a href="#faq" class="block px-4 py-3 text-white hover:text-[#68acdd] font-medium">常見問題</a>
+            <a href="#video-intro" class="block px-4 py-3 text-white hover:text-[#68acdd] font-medium">影片介紹</a>
             <a href="https://yzuspeech2text2.zeabur.app/auth.html" 
                class="block px-6 py-3 rounded-lg font-semibold text-center text-white hover:brightness-90 m-4"
                style="background-color: #94d5f6;">
@@ -357,12 +360,18 @@ window.addEventListener('resize', updateCarousel);
 </script>
 
 
-
-
-
+    <!-- 影片介紹 -->
+    <section id="video-intro" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">影片介紹</h2>
+        </div>
+        <iframe width="420" height="315"
+        src="https://www.youtube.com/embed/AjEvgj6CHcY" class="center" allowfullscreen>
+        </iframe>
+    </section>
 
     <!-- 常見問題 -->
-    <section id="faq" class="py-20 bg-white">
+    <section id="faq" class="py-20" style="background-color: #dcf0f7; font-family: 'Baloo 2';">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">常見問題</h2>
             <div class="space-y-4">
@@ -434,7 +443,7 @@ window.addEventListener('resize', updateCarousel);
                 <i class="fas fa-code text-3xl" style="color: #0a2463;"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2 text-center" style="color: #0a2463;">林意晨</h3>
-                <p class="text-sm text-center" style="color: #0a2463;">系統架構設計、後端開發</p>
+                <p class="text-sm text-center" style="color: #0a2463;">系統開發、UI/UX 設計、系統測試</p>
             </div>
 
             <!-- 成員 2 -->
@@ -445,7 +454,7 @@ window.addEventListener('resize', updateCarousel);
                 <i class="fas fa-palette text-3xl" style="color: #0a2463;"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2 text-center" style="color: #0a2463;">林瑜君</h3>
-                <p class="text-sm text-center" style="color: #0a2463;">前端開發、UX 設計</p>
+                <p class="text-sm text-center" style="color: #0a2463;">系統開發、UI/UX 設計、系統測試</p>
             </div>
 
             <!-- 成員 3 -->
@@ -476,25 +485,8 @@ window.addEventListener('resize', updateCarousel);
 
     <!-- 頁尾 -->
     <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h4 class="font-bold text-white mb-4">TransClass</h4>
-                    <p class="text-sm">智慧課堂翻譯系統</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">產品</h4>
-                    <ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white">功能</a></li><li><a href="#" class="hover:text-white">定價</a></li></ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">公司</h4>
-                    <ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white">關於</a></li><li><a href="#" class="hover:text-white">聯絡</a></li></ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">法律</h4>
-                    <ul class="space-y-2 text-sm"><li><a href="#" class="hover:text-white">隱私</a></li><li><a href="#" class="hover:text-white">條款</a></li></ul>
-                </div>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 center">
+            
             <div class="border-t border-gray-800 pt-8 text-center text-sm">
                 <p>&copy; 2025 TransClass - 元智大學資訊管理學系。版權所有。</p>
             </div>
