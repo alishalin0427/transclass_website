@@ -361,14 +361,23 @@ window.addEventListener('resize', updateCarousel);
 
 
     <!-- 影片介紹 -->
-    <section id="video-intro" class="py-20 bg-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">影片介紹</h2>
+    <section id="video-intro" class="py-20" style="background-color: #ffffff; font-family: 'Baloo 2';">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">影片介紹</h2>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px;">
+            <iframe 
+                src="https://www.youtube.com/embed/AjEvgj6CHcY"
+                frameborder="0"
+                allowfullscreen
+                class="absolute top-0 left-0 w-full h-full"
+            ></iframe>
         </div>
-        <iframe width="420" height="315"
-        src="https://www.youtube.com/embed/AjEvgj6CHcY" class="center" allowfullscreen>
-        </iframe>
-    </section>
+    </div>
+</section>
+
 
     <!-- 常見問題 -->
     <section id="faq" class="py-20" style="background-color: #dcf0f7; font-family: 'Baloo 2';">
@@ -421,7 +430,7 @@ window.addEventListener('resize', updateCarousel);
                         <i class="fas fa-chevron-down text-gray-500 transition-transform"></i>
                     </button>
                     <div class="faq-answer hidden px-6 py-4 bg-white text-gray-700 border-t animate-slide-down">
-                        課程紀錄會被保存在資料庫中，用戶可隨時查詢和匯出。具體保留政策請參考使用條款。
+                        課程紀錄會被保存在資料庫中，用戶可隨時查詢及匯出。
                     </div>
                 </div>
             </div>
@@ -443,7 +452,7 @@ window.addEventListener('resize', updateCarousel);
                 <i class="fas fa-code text-3xl" style="color: #0a2463;"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2 text-center" style="color: #0a2463;">林意晨</h3>
-                <p class="text-sm text-center" style="color: #0a2463;">系統開發、UI/UX 設計、系統測試</p>
+                <p class="text-sm text-center" style="color: #0a2463;">系統設計、系統開發、UI/UX 設計、系統測試</p>
             </div>
 
             <!-- 成員 2 -->
@@ -454,7 +463,7 @@ window.addEventListener('resize', updateCarousel);
                 <i class="fas fa-palette text-3xl" style="color: #0a2463;"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-2 text-center" style="color: #0a2463;">林瑜君</h3>
-                <p class="text-sm text-center" style="color: #0a2463;">系統開發、UI/UX 設計、系統測試</p>
+                <p class="text-sm text-center" style="color: #0a2463;">系統設計、系統開發、UI/UX 設計、系統測試</p>
             </div>
 
             <!-- 成員 3 -->
